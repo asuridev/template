@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  template: `<router-outlet />`,
+  styles: []
 })
-export class AppComponent {
-  title = 'template';
+export class AppComponent implements OnInit {
+  private themeService = inject(ThemeService);
+
+  ngOnInit(): void {
+    this.themeService.init();
+  }
 }

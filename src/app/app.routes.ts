@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { partnerGuard } from './guards/partner.guard';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -8,7 +9,7 @@ export const routes: Routes = [
   },
   {
     path: ':partnerId',
-    canActivate: [partnerGuard],
+    canActivate: [partnerGuard, authGuard],
     children: [
       {
         path: 'home',

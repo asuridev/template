@@ -5,22 +5,22 @@ import { provideKeycloak} from 'keycloak-angular';
 
 import { routes } from './app.routes';
 import { environment } from '../environments/environment';
-import { authInterceptor } from './interceptors/auth.interceptor';
+//import { authInterceptor } from './interceptors/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideKeycloak({
-      config: {
-        url: environment.keycloak.url,
-        realm: environment.keycloak.realm,
-        clientId: environment.keycloak.clientId,
-      },
-      initOptions: {
-        onLoad: 'check-sso',
-        silentCheckSsoRedirectUri: window.location.origin + '/silent-check-sso.html',
-      },
-    }),
-    provideHttpClient(withInterceptors([authInterceptor])),
+    // provideKeycloak({
+    //   config: {
+    //     url: environment.keycloak.url,
+    //     realm: environment.keycloak.realm,
+    //     clientId: environment.keycloak.clientId,
+    //   },
+    //   initOptions: {
+    //     onLoad: 'check-sso',
+    //     silentCheckSsoRedirectUri: window.location.origin + '/silent-check-sso.html',
+    //   },
+    // }),
+   // provideHttpClient(withInterceptors([authInterceptor])),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
   ],

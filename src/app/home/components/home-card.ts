@@ -37,9 +37,9 @@ import { Component, input } from '@angular/core';
       align-items: center;
       justify-content: center;
       padding: 0.55rem 1.4rem;
-      border: 1.5px solid var(--color-text-primary, #1A1A1A);
+      border: 1.5px solid var(--color-primary, #1A1A1A);
       border-radius: 999px;
-      color: var(--color-text-primary, #1A1A1A);
+      color: var(--color-primary, #1A1A1A);
       background: transparent;
       font-size: 0.9rem;
       font-weight: 500;
@@ -50,7 +50,7 @@ import { Component, input } from '@angular/core';
       font-family: inherit;
     }
     .card__btn:hover {
-      background: var(--color-text-primary, #1A1A1A);
+      background: var(--color-primary, #1A1A1A);
       color: #fff;
     }
   `],

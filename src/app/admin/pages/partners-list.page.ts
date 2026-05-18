@@ -42,6 +42,9 @@ import { PartnerConfig } from '../../shared/models/partner-config.model';
 
     .partner-name { display: flex; flex-direction: column; gap: 0.15rem; }
     .partner-name__tagline { font-size: 0.78rem; color: #6c757d; }
+
+    .btn-toggle-wrap { display: inline-flex; min-width: 7rem; }
+    .btn-toggle-wrap ui-button { flex: 1; }
   `],
   template: `
     <admin-header title="Partners" />
@@ -87,15 +90,17 @@ import { PartnerConfig } from '../../shared/models/partner-config.model';
                 <td class="table__actions">
                   <ui-button variant="ghost" size="sm" type="button" (btnClick)="view(p.id)">Ver</ui-button>
                   <ui-button variant="secondary" size="sm" type="button" (btnClick)="edit(p.id)">Editar</ui-button>
-                  <ui-button
-                    [variant]="p.isActive ? 'ghost' : 'ghost'"
-                    size="sm"
-                    type="button"
-                    (btnClick)="toggleStatus(p)"
-                    [loading]="togglingId() === p.id"
-                  >
-                    {{ p.isActive ? 'Desactivar' : 'Activar' }}
-                  </ui-button>
+                  <div class="btn-toggle-wrap">
+                    <ui-button
+                      variant="ghost"
+                      size="sm"
+                      type="button"
+                      (btnClick)="toggleStatus(p)"
+                      [loading]="togglingId() === p.id"
+                    >
+                      {{ p.isActive ? 'Desactivar' : 'Activar' }}
+                    </ui-button>
+                  </div>
                   <ui-button variant="danger" size="sm" type="button" (btnClick)="confirmDelete(p)">
                     Eliminar
                   </ui-button>

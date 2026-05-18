@@ -7,11 +7,13 @@ import { Component, computed, input } from '@angular/core';
     .badge {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.4rem;
       padding: 0.2rem 0.65rem;
       border-radius: 20px;
       font-size: 0.78rem;
       font-weight: 500;
+      min-width: 5.5rem;
     }
     .badge__dot {
       width: 7px;

@@ -7,9 +7,20 @@ import { Component, input, model } from '@angular/core';
     .tabs {
       display: flex;
       gap: 0;
-      border-bottom: 2px solid #dee2e6;
+      position: relative;
       margin-bottom: 1.5rem;
       overflow-x: auto;
+      overflow-y: hidden;
+    }
+    .tabs::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #dee2e6;
+      pointer-events: none;
     }
     .tabs__tab {
       padding: 0.65rem 1.2rem;
@@ -20,13 +31,12 @@ import { Component, input, model } from '@angular/core';
       color: #6c757d;
       cursor: pointer;
       border-bottom: 2px solid transparent;
-      margin-bottom: -2px;
       white-space: nowrap;
       transition: color 0.15s, border-color 0.15s;
       font-family: inherit;
     }
     .tabs__tab:hover           { color: #3d5a80; }
-    .tabs__tab--active         { color: #3d5a80; border-bottom-color: #3d5a80; }
+    .tabs__tab--active         { color: #3d5a80; border-bottom-color: #3d5a80; position: relative; z-index: 1; }
   `],
   template: `
     <div class="tabs">

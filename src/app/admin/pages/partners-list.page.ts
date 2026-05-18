@@ -45,8 +45,8 @@ import { PartnerConfig } from '../../config/interfaces/partner-config.interface'
                 <td class="table__id">{{ p.id }}</td>
                 <td>
                   <div class="partner-name">
-                    <span>{{ p.branding.brandName }}</span>
-                    @if (p.branding.tagline) {
+                    <span>{{ p.branding?.brandName }}</span>
+                    @if (p.branding?.tagline) {
                       <span class="partner-name__tagline">{{ p.branding.tagline }}</span>
                     }
                   </div>
@@ -160,7 +160,7 @@ export default class PartnersListPage {
     this.togglingId.set(p.id);
     this.service.patchStatus(p.id, !p.isActive).subscribe({
       next: (updated) => {
-        this.partners.update(list => list.map(x => x.id === p.id ? updated : x));
+        this.partners.update(list => list.map(x => x.id === p.id ? { ...x, isActive: updated.isActive } : x));
         this.togglingId.set(null);
       },
       error: () => { this.error.set('Error al cambiar el estado'); this.togglingId.set(null); },

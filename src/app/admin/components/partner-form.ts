@@ -302,7 +302,6 @@ const TEXT_SECTIONS = [
                   <ui-input
                     formControlName="pageTitle"
                     label="Título de la página"
-                    [required]="true"
                     [errorMessage]="err(homeTexts.get('pageTitle'))"
                   />
                 </div>
@@ -550,7 +549,7 @@ export class PartnerFormComponent {
     }),
     texts: this.fb.group({
       home: this.fb.group({
-        pageTitle: ['', Validators.required],
+        pageTitle: [''],
         cards:     this.fb.array([]),
       }),
       common: this.fb.array([]),

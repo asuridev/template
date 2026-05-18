@@ -7,7 +7,7 @@ import { AdminHeaderComponent } from '../components/admin-header';
 import { BadgeComponent } from '../../shared/ui/badge.component';
 import { ButtonComponent } from '../../shared/ui/button.component';
 import { CardComponent } from '../../shared/ui/card.component';
-import { PartnerConfig } from '../../config/interfaces/partner-config.interface';
+import { PartnerConfig } from '../../shared/models/partner-config.model';
 
 @Component({
   selector: 'app-partner-detail',

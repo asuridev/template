@@ -5,7 +5,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { PartnersAdminService } from '../services/partners-admin.service';
 import { AdminHeaderComponent } from '../components/admin-header';
 import { PartnerFormComponent } from '../components/partner-form';
-import { PartnerConfig } from '../../config/interfaces/partner-config.interface';
+import { PartnerConfig } from '../../shared/models/partner-config.model';
 
 @Component({
   selector: 'app-partner-edit',

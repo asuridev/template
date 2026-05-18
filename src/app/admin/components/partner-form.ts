@@ -24,7 +24,7 @@ import { TabsComponent } from '../../shared/ui/tabs.component';
 import {
   PartnerConfig,
   PartnerThemeColors,
-} from '../../config/interfaces/partner-config.interface';
+} from '../../shared/models/partner-config.model';
 
 // ─── Field metadata ──────────────────────────────────────────────────────────
 

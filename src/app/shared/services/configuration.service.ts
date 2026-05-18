@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of, catchError, tap } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
-import { PartnerConfig } from '../../config/interfaces/partner-config.interface';
+import { PartnerConfig } from '../models/partner-config.model';
 
 @Injectable({ providedIn: 'root' })
 export class ConfigurationService {

@@ -3,20 +3,6 @@ import { Component, input, model } from '@angular/core';
 @Component({
   selector: 'ui-tabs',
   standalone: true,
-  template: `
-    <div class="tabs">
-      @for (tab of tabs(); track $index) {
-        <button
-          type="button"
-          class="tabs__tab"
-          [class.tabs__tab--active]="activeIndex() === $index"
-          (click)="activeIndex.set($index)"
-        >
-          {{ tab }}
-        </button>
-      }
-    </div>
-  `,
   styles: [`
     .tabs {
       display: flex;
@@ -42,6 +28,20 @@ import { Component, input, model } from '@angular/core';
     .tabs__tab:hover           { color: #3d5a80; }
     .tabs__tab--active         { color: #3d5a80; border-bottom-color: #3d5a80; }
   `],
+  template: `
+    <div class="tabs">
+      @for (tab of tabs(); track $index) {
+        <button
+          type="button"
+          class="tabs__tab"
+          [class.tabs__tab--active]="activeIndex() === $index"
+          (click)="activeIndex.set($index)"
+        >
+          {{ tab }}
+        </button>
+      }
+    </div>
+  `,
 })
 export class TabsComponent {
   tabs        = input.required<string[]>();

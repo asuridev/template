@@ -13,6 +13,46 @@ import { PartnerConfig } from '../../config/interfaces/partner-config.interface'
   selector: 'app-partner-detail',
   standalone: true,
   imports: [AdminHeaderComponent, BadgeComponent, ButtonComponent, CardComponent],
+  styles: [`
+    .status-msg { color: #6c757d; font-size: 0.9rem; padding: 2rem 0; text-align: center; }
+    .status-msg--error { color: #c0392b; }
+
+    .detail-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+    .detail-toolbar__actions { display: flex; gap: 0.5rem; }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.4rem 1rem; font-size: 0.87rem; margin: 0; }
+    dt { font-weight: 600; color: #495057; }
+    dd { margin: 0; color: #1a1a2e; word-break: break-all; }
+
+    .detail-subtitle { font-size: 0.85rem; font-weight: 600; color: #495057; margin: 1rem 0 0.4rem; }
+    .mono  { font-family: monospace; font-size: 0.85rem; }
+    .link  { color: #3d5a80; text-decoration: none; }
+    .link:hover { text-decoration: underline; }
+
+    .colors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.5rem; }
+    .color-item  { display: flex; align-items: center; gap: 0.5rem; }
+    .color-swatch { width: 24px; height: 24px; border-radius: 4px; border: 1px solid #dee2e6; flex-shrink: 0; }
+    .color-item__name { font-size: 0.78rem; font-weight: 500; color: #495057; }
+    .color-item__hex  { font-size: 0.75rem; font-family: monospace; color: #868e96; }
+
+    .list { margin: 0; padding-left: 1rem; font-size: 0.87rem; }
+    .list li { margin-bottom: 0.2rem; }
+
+    .text-card { display: flex; gap: 0.5rem; align-items: baseline; font-size: 0.85rem; padding: 0.4rem 0; border-bottom: 1px solid #f1f3f5; }
+    .text-card__badge { background: #e9ecef; border-radius: 4px; padding: 0.1rem 0.4rem; font-size: 0.75rem; font-weight: 600; }
+    .text-card__btn   { margin-left: auto; color: #3d5a80; font-size: 0.78rem; }
+  `],
   template: `
     @if (isLoading()) {
       <p class="status-msg">Cargando partner…</p>
@@ -124,46 +164,6 @@ import { PartnerConfig } from '../../config/interfaces/partner-config.interface'
       }
     }
   `,
-  styles: [`
-    .status-msg { color: #6c757d; font-size: 0.9rem; padding: 2rem 0; text-align: center; }
-    .status-msg--error { color: #c0392b; }
-
-    .detail-toolbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1.5rem;
-    }
-    .detail-toolbar__actions { display: flex; gap: 0.5rem; }
-
-    .detail-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.4rem 1rem; font-size: 0.87rem; margin: 0; }
-    dt { font-weight: 600; color: #495057; }
-    dd { margin: 0; color: #1a1a2e; word-break: break-all; }
-
-    .detail-subtitle { font-size: 0.85rem; font-weight: 600; color: #495057; margin: 1rem 0 0.4rem; }
-    .mono  { font-family: monospace; font-size: 0.85rem; }
-    .link  { color: #3d5a80; text-decoration: none; }
-    .link:hover { text-decoration: underline; }
-
-    .colors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.5rem; }
-    .color-item  { display: flex; align-items: center; gap: 0.5rem; }
-    .color-swatch { width: 24px; height: 24px; border-radius: 4px; border: 1px solid #dee2e6; flex-shrink: 0; }
-    .color-item__name { font-size: 0.78rem; font-weight: 500; color: #495057; }
-    .color-item__hex  { font-size: 0.75rem; font-family: monospace; color: #868e96; }
-
-    .list { margin: 0; padding-left: 1rem; font-size: 0.87rem; }
-    .list li { margin-bottom: 0.2rem; }
-
-    .text-card { display: flex; gap: 0.5rem; align-items: baseline; font-size: 0.85rem; padding: 0.4rem 0; border-bottom: 1px solid #f1f3f5; }
-    .text-card__badge { background: #e9ecef; border-radius: 4px; padding: 0.1rem 0.4rem; font-size: 0.75rem; font-weight: 600; }
-    .text-card__btn   { margin-left: auto; color: #3d5a80; font-size: 0.78rem; }
-  `],
 })
 export default class PartnerDetailPage {
   private service = inject(PartnersAdminService);

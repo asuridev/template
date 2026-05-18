@@ -100,6 +100,110 @@ const TEXT_SECTIONS = [
   selector: 'admin-partner-form',
   standalone: true,
   imports: [ReactiveFormsModule, TabsComponent, ButtonComponent, InputComponent],
+  styles: [`
+    .pf { display: flex; flex-direction: column; gap: 0; }
+
+    .pf__body {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid #e9ecef;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      min-height: 320px;
+    }
+    .pf__section { margin-bottom: 1.75rem; }
+    .pf__section:last-child { margin-bottom: 0; }
+    .pf__section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin: 0 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .pf__hint { font-size: 0.78rem; font-weight: 400; color: #6c757d; }
+    .pf__subtitle { font-size: 0.9rem; font-weight: 600; color: #495057; margin: 1rem 0 0.5rem; }
+
+    .pf__grid   { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .pf__grid--2 { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+
+    .pf__toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: #495057;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+
+    /* Assets */
+    .pf__assets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .pf__asset {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding: 0.9rem;
+      border: 1px dashed #ced4da;
+      border-radius: 8px;
+      background: #f8f9fa;
+    }
+    .pf__asset-label { font-size: 0.82rem; font-weight: 600; color: #495057; }
+    .pf__asset-name  { font-size: 0.78rem; color: #3d5a80; word-break: break-all; }
+    .pf__asset-placeholder { font-size: 0.78rem; color: #adb5bd; }
+    .pf__asset-btn {
+      display: inline-block;
+      padding: 0.35rem 0.8rem;
+      border: 1px solid #ced4da;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      background: #fff;
+      cursor: pointer;
+      color: #495057;
+      margin-top: auto;
+      text-align: center;
+    }
+    .pf__asset-btn:hover { background: #e9ecef; }
+
+    /* Colors */
+    .pf__colors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.9rem; }
+    .pf__color-field { display: flex; flex-direction: column; gap: 0.3rem; }
+    .pf__color-label { font-size: 0.82rem; font-weight: 500; color: #495057; }
+    .pf__color-row   { display: flex; gap: 0.4rem; align-items: center; }
+    .pf__color-picker {
+      width: 2.4rem; height: 2.4rem;
+      border: 1px solid #ced4da;
+      border-radius: 6px;
+      padding: 2px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .pf__color-text {
+      flex: 1;
+      padding: 0.45rem 0.65rem;
+      border: 1px solid #ced4da;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-family: monospace;
+      outline: none;
+    }
+    .pf__color-text:focus { border-color: #3d5a80; }
+
+    /* List / kv */
+    .pf__list     { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .pf__list-row { display: flex; align-items: flex-end; gap: 0.5rem; }
+    .pf__list-row ui-input { flex: 1; }
+    .pf__kv-row   { display: grid; grid-template-columns: 1fr 2fr auto; gap: 0.5rem; align-items: flex-end; }
+    .pf__card-row { display: grid; grid-template-columns: 1fr 2fr 1.5fr auto; gap: 0.5rem; align-items: flex-end; }
+
+    /* Actions */
+    .pf__actions { display: flex; justify-content: flex-end; gap: 0.75rem; }
+  `],
   template: `
     <form [formGroup]="form" (ngSubmit)="submit()" class="pf">
 
@@ -354,110 +458,6 @@ const TEXT_SECTIONS = [
 
     </form>
   `,
-  styles: [`
-    .pf { display: flex; flex-direction: column; gap: 0; }
-
-    .pf__body {
-      background: #fff;
-      border-radius: 10px;
-      border: 1px solid #e9ecef;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      min-height: 320px;
-    }
-    .pf__section { margin-bottom: 1.75rem; }
-    .pf__section:last-child { margin-bottom: 0; }
-    .pf__section-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #1a1a2e;
-      margin: 0 0 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .pf__hint { font-size: 0.78rem; font-weight: 400; color: #6c757d; }
-    .pf__subtitle { font-size: 0.9rem; font-weight: 600; color: #495057; margin: 1rem 0 0.5rem; }
-
-    .pf__grid   { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
-    .pf__grid--2 { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
-
-    .pf__toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-      color: #495057;
-      cursor: pointer;
-      margin-top: 0.5rem;
-    }
-
-    /* Assets */
-    .pf__assets-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 1rem;
-    }
-    .pf__asset {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      padding: 0.9rem;
-      border: 1px dashed #ced4da;
-      border-radius: 8px;
-      background: #f8f9fa;
-    }
-    .pf__asset-label { font-size: 0.82rem; font-weight: 600; color: #495057; }
-    .pf__asset-name  { font-size: 0.78rem; color: #3d5a80; word-break: break-all; }
-    .pf__asset-placeholder { font-size: 0.78rem; color: #adb5bd; }
-    .pf__asset-btn {
-      display: inline-block;
-      padding: 0.35rem 0.8rem;
-      border: 1px solid #ced4da;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      background: #fff;
-      cursor: pointer;
-      color: #495057;
-      margin-top: auto;
-      text-align: center;
-    }
-    .pf__asset-btn:hover { background: #e9ecef; }
-
-    /* Colors */
-    .pf__colors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.9rem; }
-    .pf__color-field { display: flex; flex-direction: column; gap: 0.3rem; }
-    .pf__color-label { font-size: 0.82rem; font-weight: 500; color: #495057; }
-    .pf__color-row   { display: flex; gap: 0.4rem; align-items: center; }
-    .pf__color-picker {
-      width: 2.4rem; height: 2.4rem;
-      border: 1px solid #ced4da;
-      border-radius: 6px;
-      padding: 2px;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-    .pf__color-text {
-      flex: 1;
-      padding: 0.45rem 0.65rem;
-      border: 1px solid #ced4da;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-family: monospace;
-      outline: none;
-    }
-    .pf__color-text:focus { border-color: #3d5a80; }
-
-    /* List / kv */
-    .pf__list     { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.5rem; }
-    .pf__list-row { display: flex; align-items: flex-end; gap: 0.5rem; }
-    .pf__list-row ui-input { flex: 1; }
-    .pf__kv-row   { display: grid; grid-template-columns: 1fr 2fr auto; gap: 0.5rem; align-items: flex-end; }
-    .pf__card-row { display: grid; grid-template-columns: 1fr 2fr 1.5fr auto; gap: 0.5rem; align-items: flex-end; }
-
-    /* Actions */
-    .pf__actions { display: flex; justify-content: flex-end; gap: 0.75rem; }
-  `],
 })
 export class PartnerFormComponent {
   // ─── Inputs / Outputs ──────────────────────────────────────────────────────

@@ -3,24 +3,6 @@ import { Component, input, output } from '@angular/core';
 @Component({
   selector: 'ui-modal',
   standalone: true,
-  template: `
-    @if (open()) {
-      <div class="modal-backdrop" (click)="cancel.emit()">
-        <div class="modal-dialog" (click)="$event.stopPropagation()">
-          <h3 class="modal-dialog__title">{{ title() }}</h3>
-          <p class="modal-dialog__message">{{ message() }}</p>
-          <div class="modal-dialog__actions">
-            <button type="button" class="modal-btn modal-btn--cancel" (click)="cancel.emit()">
-              {{ cancelLabel() }}
-            </button>
-            <button type="button" class="modal-btn modal-btn--confirm" (click)="confirm.emit()">
-              {{ confirmLabel() }}
-            </button>
-          </div>
-        </div>
-      </div>
-    }
-  `,
   styles: [`
     .modal-backdrop {
       position: fixed;
@@ -57,6 +39,24 @@ import { Component, input, output } from '@angular/core';
     .modal-btn--confirm { background: #c0392b; color: #fff; }
     .modal-btn--confirm:hover { background: #a93226; }
   `],
+  template: `
+    @if (open()) {
+      <div class="modal-backdrop" (click)="cancel.emit()">
+        <div class="modal-dialog" (click)="$event.stopPropagation()">
+          <h3 class="modal-dialog__title">{{ title() }}</h3>
+          <p class="modal-dialog__message">{{ message() }}</p>
+          <div class="modal-dialog__actions">
+            <button type="button" class="modal-btn modal-btn--cancel" (click)="cancel.emit()">
+              {{ cancelLabel() }}
+            </button>
+            <button type="button" class="modal-btn modal-btn--confirm" (click)="confirm.emit()">
+              {{ confirmLabel() }}
+            </button>
+          </div>
+        </div>
+      </div>
+    }
+  `,
 })
 export class ModalComponent {
   open         = input(false);

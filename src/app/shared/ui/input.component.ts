@@ -20,27 +20,6 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
       multi: true,
     },
   ],
-  template: `
-    <div class="field" [class.field--error]="errorMessage()">
-      @if (label()) {
-        <label class="field__label">
-          {{ label() }}@if (required()) { <span class="field__req">*</span> }
-        </label>
-      }
-      <input
-        class="field__input"
-        [type]="type()"
-        [placeholder]="placeholder()"
-        [disabled]="isDisabled()"
-        [value]="value()"
-        (input)="onInput($event)"
-        (blur)="onTouched()"
-      />
-      @if (errorMessage()) {
-        <span class="field__error">{{ errorMessage() }}</span>
-      }
-    </div>
-  `,
   styles: [`
     .field { display: flex; flex-direction: column; gap: 0.3rem; }
 
@@ -67,6 +46,27 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
     input[type="color"].field__input { padding: 0.2rem 0.4rem; height: 2.4rem; cursor: pointer; }
   `],
+  template: `
+    <div class="field" [class.field--error]="errorMessage()">
+      @if (label()) {
+        <label class="field__label">
+          {{ label() }}@if (required()) { <span class="field__req">*</span> }
+        </label>
+      }
+      <input
+        class="field__input"
+        [type]="type()"
+        [placeholder]="placeholder()"
+        [disabled]="isDisabled()"
+        [value]="value()"
+        (input)="onInput($event)"
+        (blur)="onTouched()"
+      />
+      @if (errorMessage()) {
+        <span class="field__error">{{ errorMessage() }}</span>
+      }
+    </div>
+  `,
 })
 export class InputComponent implements ControlValueAccessor {
   label        = input('');

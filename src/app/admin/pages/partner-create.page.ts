@@ -11,6 +11,10 @@ import { PartnerConfig } from '../../config/interfaces/partner-config.interface'
   selector: 'app-partner-create',
   standalone: true,
   imports: [AdminHeaderComponent, PartnerFormComponent],
+  styles: [`
+    .error-msg   { color: #c0392b; font-size: 0.9rem; margin-bottom: 1rem; }
+    .loading-msg { color: #6c757d; font-size: 0.9rem; padding: 2rem 0; text-align: center; }
+  `],
   template: `
     <admin-header title="Nuevo partner" subtitle="Partners" />
 
@@ -29,10 +33,6 @@ import { PartnerConfig } from '../../config/interfaces/partner-config.interface'
       />
     }
   `,
-  styles: [`
-    .error-msg   { color: #c0392b; font-size: 0.9rem; margin-bottom: 1rem; }
-    .loading-msg { color: #6c757d; font-size: 0.9rem; padding: 2rem 0; text-align: center; }
-  `],
 })
 export default class PartnerCreatePage {
   private service    = inject(PartnersAdminService);

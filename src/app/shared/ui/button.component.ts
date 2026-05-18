@@ -6,19 +6,6 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
 @Component({
   selector: 'ui-button',
   standalone: true,
-  template: `
-    <button
-      [class]="hostClass()"
-      [disabled]="disabled() || loading()"
-      [type]="type()"
-      (click)="onClick($event)"
-    >
-      @if (loading()) {
-        <span class="btn__spinner"></span>
-      }
-      <ng-content />
-    </button>
-  `,
   styles: [`
     .btn {
       display: inline-flex;
@@ -59,6 +46,19 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
     }
     @keyframes spin { to { transform: rotate(360deg); } }
   `],
+  template: `
+    <button
+      [class]="hostClass()"
+      [disabled]="disabled() || loading()"
+      [type]="type()"
+      (click)="onClick($event)"
+    >
+      @if (loading()) {
+        <span class="btn__spinner"></span>
+      }
+      <ng-content />
+    </button>
+  `,
 })
 export class ButtonComponent {
   variant = input<ButtonVariant>('primary');

@@ -8,18 +8,6 @@ import { HomeFooterComponent } from '../components/home-footer';
     HomeHeaderComponent,
     HomeFooterComponent
   ],
-  template: `
-    <div class="page">
-      <home-header />
-      <main class="content">
-        <h1>Bienvenido al portal</h1>
-        <p>Los estilos se aplican automáticamente según el socio en la URL.</p>
-        <button class="btn-primary">Acción principal</button>
-        <button class="btn-secondary">Acción secundaria</button>
-      </main>
-      <home-footer />
-    </div>
-  `,
   styles: [`
     .page {
       min-height: 100vh;
@@ -59,6 +47,18 @@ import { HomeFooterComponent } from '../components/home-footer';
       border-radius: 4px;
       cursor: pointer;
     }
-  `]
+  `],
+  template: `
+    <div class="page">
+      <home-header />
+      <main class="content">
+        <h1>Bienvenido al portal</h1>
+        <p>Los estilos se aplican automáticamente según el socio en la URL.</p>
+        <button class="btn-primary">Acción principal</button>
+        <button class="btn-secondary">Acción secundaria</button>
+      </main>
+      <home-footer />
+    </div>
+  `,
 })
 export default class HomePage {}

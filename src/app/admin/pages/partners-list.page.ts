@@ -13,6 +13,36 @@ import { PartnerConfig } from '../../config/interfaces/partner-config.interface'
   selector: 'app-partners-list',
   standalone: true,
   imports: [AdminHeaderComponent, BadgeComponent, ButtonComponent, ModalComponent],
+  styles: [`
+    .toolbar { margin-bottom: 1.5rem; display: flex; justify-content: flex-end; }
+
+    .status-msg { color: #6c757d; font-size: 0.9rem; padding: 2rem 0; text-align: center; }
+    .status-msg--error { color: #c0392b; }
+
+    .table-wrap { background: #fff; border-radius: 10px; border: 1px solid #e9ecef; overflow: hidden; }
+    .table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .table thead { background: #f8f9fa; }
+    .table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      font-weight: 600;
+      color: #495057;
+      border-bottom: 1px solid #e9ecef;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .table td { padding: 0.85rem 1rem; border-bottom: 1px solid #f1f3f5; vertical-align: middle; }
+    .table tr:last-child td { border-bottom: none; }
+    .table tr:hover td { background: #f8f9fa; }
+
+    .table__id { font-family: monospace; font-size: 0.82rem; color: #6c757d; }
+    .table__actions-col { width: 1px; white-space: nowrap; }
+    .table__actions { display: flex; gap: 0.4rem; flex-wrap: nowrap; }
+
+    .partner-name { display: flex; flex-direction: column; gap: 0.15rem; }
+    .partner-name__tagline { font-size: 0.78rem; color: #6c757d; }
+  `],
   template: `
     <admin-header title="Partners" />
 
@@ -45,8 +75,8 @@ import { PartnerConfig } from '../../config/interfaces/partner-config.interface'
                 <td class="table__id">{{ p.id }}</td>
                 <td>
                   <div class="partner-name">
-                    <span>{{ p.branding?.brandName }}</span>
-                    @if (p.branding?.tagline) {
+                    <span>{{ p.branding.brandName }}</span>
+                    @if (p.branding.tagline) {
                       <span class="partner-name__tagline">{{ p.branding.tagline }}</span>
                     }
                   </div>
@@ -86,36 +116,6 @@ import { PartnerConfig } from '../../config/interfaces/partner-config.interface'
       (cancel)="deleteTarget.set(null)"
     />
   `,
-  styles: [`
-    .toolbar { margin-bottom: 1.5rem; display: flex; justify-content: flex-end; }
-
-    .status-msg { color: #6c757d; font-size: 0.9rem; padding: 2rem 0; text-align: center; }
-    .status-msg--error { color: #c0392b; }
-
-    .table-wrap { background: #fff; border-radius: 10px; border: 1px solid #e9ecef; overflow: hidden; }
-    .table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-    .table thead { background: #f8f9fa; }
-    .table th {
-      text-align: left;
-      padding: 0.75rem 1rem;
-      font-weight: 600;
-      color: #495057;
-      border-bottom: 1px solid #e9ecef;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .table td { padding: 0.85rem 1rem; border-bottom: 1px solid #f1f3f5; vertical-align: middle; }
-    .table tr:last-child td { border-bottom: none; }
-    .table tr:hover td { background: #f8f9fa; }
-
-    .table__id { font-family: monospace; font-size: 0.82rem; color: #6c757d; }
-    .table__actions-col { width: 1px; white-space: nowrap; }
-    .table__actions { display: flex; gap: 0.4rem; flex-wrap: nowrap; }
-
-    .partner-name { display: flex; flex-direction: column; gap: 0.15rem; }
-    .partner-name__tagline { font-size: 0.78rem; color: #6c757d; }
-  `],
 })
 export default class PartnersListPage {
   private service = inject(PartnersAdminService);

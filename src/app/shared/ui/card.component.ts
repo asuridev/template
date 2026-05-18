@@ -3,16 +3,6 @@ import { Component, input } from '@angular/core';
 @Component({
   selector: 'ui-card',
   standalone: true,
-  template: `
-    <div class="card">
-      @if (title()) {
-        <div class="card__header">{{ title() }}</div>
-      }
-      <div class="card__body">
-        <ng-content />
-      </div>
-    </div>
-  `,
   styles: [`
     .card {
       background: #fff;
@@ -33,6 +23,16 @@ import { Component, input } from '@angular/core';
       padding: 1.25rem;
     }
   `],
+  template: `
+    <div class="card">
+      @if (title()) {
+        <div class="card__header">{{ title() }}</div>
+      }
+      <div class="card__body">
+        <ng-content />
+      </div>
+    </div>
+  `,
 })
 export class CardComponent {
   title = input('');

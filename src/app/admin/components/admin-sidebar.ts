@@ -5,24 +5,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   selector: 'admin-sidebar',
   standalone: true,
   imports: [RouterLink, RouterLinkActive],
-  template: `
-    <aside class="sidebar">
-      <div class="sidebar__brand">
-        <span class="sidebar__icon">⚙</span>
-        <span>Admin Panel</span>
-      </div>
-      <nav class="sidebar__nav">
-        <a
-          routerLink="/admin/partners"
-          routerLinkActive="sidebar__link--active"
-          class="sidebar__link"
-        >
-          <span class="sidebar__link-icon">🏢</span>
-          Partners
-        </a>
-      </nav>
-    </aside>
-  `,
   styles: [`
     .sidebar {
       width: 220px;
@@ -60,5 +42,23 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     .sidebar__link--active       { background: rgba(61,90,128,0.35); color: #fff; border-left-color: #3d5a80; }
     .sidebar__link-icon          { font-size: 1rem; }
   `],
+  template: `
+    <aside class="sidebar">
+      <div class="sidebar__brand">
+        <span class="sidebar__icon">⚙</span>
+        <span>Admin Panel</span>
+      </div>
+      <nav class="sidebar__nav">
+        <a
+          routerLink="/admin/partners"
+          routerLinkActive="sidebar__link--active"
+          class="sidebar__link"
+        >
+          <span class="sidebar__link-icon">🏢</span>
+          Partners
+        </a>
+      </nav>
+    </aside>
+  `,
 })
 export class AdminSidebarComponent {}

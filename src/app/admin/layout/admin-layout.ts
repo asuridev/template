@@ -6,14 +6,6 @@ import { AdminSidebarComponent } from '../components/admin-sidebar';
   selector: 'app-admin-layout',
   standalone: true,
   imports: [RouterOutlet, AdminSidebarComponent],
-  template: `
-    <div class="admin-shell">
-      <admin-sidebar />
-      <main class="admin-main">
-        <router-outlet />
-      </main>
-    </div>
-  `,
   styles: [`
     .admin-shell {
       display: flex;
@@ -30,5 +22,13 @@ import { AdminSidebarComponent } from '../components/admin-sidebar';
       min-width: 0;
     }
   `],
+  template: `
+    <div class="admin-shell">
+      <admin-sidebar />
+      <main class="admin-main">
+        <router-outlet />
+      </main>
+    </div>
+  `,
 })
 export default class AdminLayoutComponent {}

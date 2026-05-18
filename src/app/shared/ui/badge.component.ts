@@ -3,12 +3,6 @@ import { Component, computed, input } from '@angular/core';
 @Component({
   selector: 'ui-badge',
   standalone: true,
-  template: `
-    <span [class]="'badge badge--' + (active() ? 'active' : 'inactive')">
-      <span class="badge__dot"></span>
-      {{ active() ? 'Activo' : 'Inactivo' }}
-    </span>
-  `,
   styles: [`
     .badge {
       display: inline-flex;
@@ -29,6 +23,12 @@ import { Component, computed, input } from '@angular/core';
     .badge--inactive { background: #e2e3e5; color: #495057; }
     .badge--inactive .badge__dot { background: #868e96; }
   `],
+  template: `
+    <span [class]="'badge badge--' + (active() ? 'active' : 'inactive')">
+      <span class="badge__dot"></span>
+      {{ active() ? 'Activo' : 'Inactivo' }}
+    </span>
+  `,
 })
 export class BadgeComponent {
   active = input.required<boolean>();

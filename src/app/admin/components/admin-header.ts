@@ -5,18 +5,6 @@ import { RouterLink } from '@angular/router';
   selector: 'admin-header',
   standalone: true,
   imports: [RouterLink],
-  template: `
-    <header class="admin-header">
-      <div class="admin-header__breadcrumb">
-        <a routerLink="/admin/partners" class="admin-header__crumb">Admin</a>
-        @if (subtitle()) {
-          <span class="admin-header__sep">›</span>
-          <span class="admin-header__crumb">{{ subtitle() }}</span>
-        }
-      </div>
-      <h1 class="admin-header__title">{{ title() }}</h1>
-    </header>
-  `,
   styles: [`
     .admin-header { margin-bottom: 1.5rem; }
     .admin-header__breadcrumb {
@@ -31,6 +19,18 @@ import { RouterLink } from '@angular/router';
     .admin-header__sep       { color: #adb5bd; }
     .admin-header__title     { margin: 0; font-size: 1.6rem; font-weight: 700; color: #1a1a2e; }
   `],
+  template: `
+    <header class="admin-header">
+      <div class="admin-header__breadcrumb">
+        <a routerLink="/admin/partners" class="admin-header__crumb">Admin</a>
+        @if (subtitle()) {
+          <span class="admin-header__sep">›</span>
+          <span class="admin-header__crumb">{{ subtitle() }}</span>
+        }
+      </div>
+      <h1 class="admin-header__title">{{ title() }}</h1>
+    </header>
+  `,
 })
 export class AdminHeaderComponent {
   title    = input.required<string>();

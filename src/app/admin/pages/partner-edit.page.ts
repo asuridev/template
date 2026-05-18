@@ -11,6 +11,10 @@ import { PartnerConfig } from '../../config/interfaces/partner-config.interface'
   selector: 'app-partner-edit',
   standalone: true,
   imports: [AdminHeaderComponent, PartnerFormComponent],
+  styles: [`
+    .status-msg { color: #6c757d; font-size: 0.9rem; padding: 2rem 0; text-align: center; }
+    .status-msg--error { color: #c0392b; }
+  `],
   template: `
     @if (isLoading()) {
       <p class="status-msg">Cargando partner…</p>
@@ -31,10 +35,6 @@ import { PartnerConfig } from '../../config/interfaces/partner-config.interface'
       />
     }
   `,
-  styles: [`
-    .status-msg { color: #6c757d; font-size: 0.9rem; padding: 2rem 0; text-align: center; }
-    .status-msg--error { color: #c0392b; }
-  `],
 })
 export default class PartnerEditPage {
   private service    = inject(PartnersAdminService);

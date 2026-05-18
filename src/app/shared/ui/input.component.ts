@@ -39,7 +39,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
       font-family: inherit;
       transition: border-color 0.15s, box-shadow 0.15s;
     }
-    .field__input:focus        { border-color: #3d5a80; box-shadow: 0 0 0 3px rgba(61,90,128,0.15); }
+    .field__input:focus        { border-color: var(--bnp-primary, #3d5a80); box-shadow: 0 0 0 3px var(--bnp-primary-shadow, rgba(61,90,128,0.15)); }
     .field__input:disabled     { background: #f8f9fa; cursor: not-allowed; }
     .field--error .field__input { border-color: #c0392b; }
     .field__error { font-size: 0.78rem; color: #c0392b; }

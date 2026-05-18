@@ -18,8 +18,8 @@ import { Component, computed, input } from '@angular/core';
       height: 7px;
       border-radius: 50%;
     }
-    .badge--active  { background: #d4edda; color: #155724; }
-    .badge--active  .badge__dot { background: #28a745; }
+    .badge--active  { background: var(--bnp-badge-active-bg, #d4edda); color: var(--bnp-primary-dark, #155724); }
+    .badge--active  .badge__dot { background: var(--bnp-primary, #28a745); }
     .badge--inactive { background: #e2e3e5; color: #495057; }
     .badge--inactive .badge__dot { background: #868e96; }
   `],

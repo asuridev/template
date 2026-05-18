@@ -154,7 +154,7 @@ const TEXT_SECTIONS = [
       background: #f8f9fa;
     }
     .pf__asset-label { font-size: 0.82rem; font-weight: 600; color: #495057; }
-    .pf__asset-name  { font-size: 0.78rem; color: #3d5a80; word-break: break-all; }
+    .pf__asset-name  { font-size: 0.78rem; color: var(--bnp-primary, #3d5a80); word-break: break-all; }
     .pf__asset-placeholder { font-size: 0.78rem; color: #adb5bd; }
     .pf__asset-btn {
       display: inline-block;
@@ -192,7 +192,7 @@ const TEXT_SECTIONS = [
       font-family: monospace;
       outline: none;
     }
-    .pf__color-text:focus { border-color: #3d5a80; }
+    .pf__color-text:focus { border-color: var(--bnp-primary, #3d5a80); }
 
     /* List / kv */
     .pf__list     { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.5rem; }

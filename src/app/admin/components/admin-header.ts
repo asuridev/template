@@ -15,9 +15,9 @@ import { RouterLink } from '@angular/router';
       margin-bottom: 0.3rem;
     }
     .admin-header__crumb     { color: #6c757d; text-decoration: none; }
-    .admin-header__crumb:hover { color: #3d5a80; }
+    .admin-header__crumb:hover { color: var(--bnp-primary, #3d5a80); }
     .admin-header__sep       { color: #adb5bd; }
-    .admin-header__title     { margin: 0; font-size: 1.6rem; font-weight: 700; color: #1a1a2e; }
+    .admin-header__title     { margin: 0; font-size: 1.6rem; font-weight: 700; color: var(--bnp-text, #1a1a2e); }
   `],
   template: `
     <header class="admin-header">

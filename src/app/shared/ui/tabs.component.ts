@@ -35,8 +35,8 @@ import { Component, input, model } from '@angular/core';
       transition: color 0.15s, border-color 0.15s;
       font-family: inherit;
     }
-    .tabs__tab:hover           { color: #3d5a80; }
-    .tabs__tab--active         { color: #3d5a80; border-bottom-color: #3d5a80; position: relative; z-index: 1; }
+    .tabs__tab:hover           { color: var(--bnp-primary, #3d5a80); }
+    .tabs__tab--active         { color: var(--bnp-primary, #3d5a80); border-bottom-color: var(--bnp-primary, #3d5a80); position: relative; z-index: 1; }
   `],
   template: `
     <div class="tabs">

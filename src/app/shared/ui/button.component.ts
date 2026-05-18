@@ -25,8 +25,8 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
     .btn--md { padding: 0.5rem 1.1rem;  font-size: 0.9rem; }
     .btn--lg { padding: 0.7rem 1.5rem;  font-size: 1rem;   }
 
-    .btn--primary   { background: #3d5a80; color: #fff; }
-    .btn--primary:hover:not(:disabled)   { background: #2e4564; }
+    .btn--primary   { background: var(--bnp-primary, #3d5a80); color: #fff; }
+    .btn--primary:hover:not(:disabled)   { background: var(--bnp-primary-dark, #2e4564); }
 
     .btn--secondary { background: #e9ecef; color: #1a1a2e; border: 1px solid #ced4da; }
     .btn--secondary:hover:not(:disabled) { background: #dee2e6; }
@@ -34,8 +34,8 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
     .btn--danger    { background: #c0392b; color: #fff; }
     .btn--danger:hover:not(:disabled)    { background: #a93226; }
 
-    .btn--ghost     { background: transparent; color: #3d5a80; }
-    .btn--ghost:hover:not(:disabled)     { background: #eef2f7; }
+    .btn--ghost     { background: transparent; color: var(--bnp-primary, #3d5a80); }
+    .btn--ghost:hover:not(:disabled)     { background: var(--bnp-primary-ghost, #eef2f7); }
 
     .btn__spinner {
       width: 0.9em; height: 0.9em;

@@ -37,7 +37,7 @@ import { PartnerConfig } from '../../config/interfaces/partner-config.interface'
 
     .detail-subtitle { font-size: 0.85rem; font-weight: 600; color: #495057; margin: 1rem 0 0.4rem; }
     .mono  { font-family: monospace; font-size: 0.85rem; }
-    .link  { color: #3d5a80; text-decoration: none; }
+    .link  { color: var(--bnp-primary, #3d5a80); text-decoration: none; }
     .link:hover { text-decoration: underline; }
 
     .colors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.5rem; }
@@ -51,7 +51,7 @@ import { PartnerConfig } from '../../config/interfaces/partner-config.interface'
 
     .text-card { display: flex; gap: 0.5rem; align-items: baseline; font-size: 0.85rem; padding: 0.4rem 0; border-bottom: 1px solid #f1f3f5; }
     .text-card__badge { background: #e9ecef; border-radius: 4px; padding: 0.1rem 0.4rem; font-size: 0.75rem; font-weight: 600; }
-    .text-card__btn   { margin-left: auto; color: #3d5a80; font-size: 0.78rem; }
+    .text-card__btn   { margin-left: auto; color: var(--bnp-primary, #3d5a80); font-size: 0.78rem; }
   `],
   template: `
     @if (isLoading()) {

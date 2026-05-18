@@ -21,6 +21,7 @@ export const appConfig: ApplicationConfig = {
     //   },
     // }),
    // provideHttpClient(withInterceptors([authInterceptor])),
+    provideHttpClient(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
   ],

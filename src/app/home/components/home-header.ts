@@ -1,19 +1,31 @@
-import { Component } from "@angular/core";
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'home-header',
+  standalone: true,
   styles: [`
-    .home-header {
-      text-align: center;
-      padding: 1rem;
-      background-color: var(--color-background);
-      color: var(--color-text);
+    .header {
+      background: #fff;
+      border-bottom: 1px solid var(--color-border, #E0E0E0);
+      padding: 0.85rem 2rem;
+      display: flex;
+      align-items: center;
+      min-height: 60px;
+    }
+    .header__logo {
+      height: 36px;
+      object-fit: contain;
     }
   `],
-  template: `<header class="home-header">
-    <h1>Welcome to ACME Corp</h1>
-  </header>`,
+  template: `
+    <header class="header">
+      @if (logoUrl()) {
+        <img class="header__logo" [src]="logoUrl()" [alt]="brandName()" />
+      }
+    </header>
+  `,
 })
 export class HomeHeaderComponent {
-
+  logoUrl   = input('');
+  brandName = input('');
 }

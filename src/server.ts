@@ -22,7 +22,8 @@ const uploadsPath       = resolve(process.cwd(), process.env['STORAGE_LOCAL_PATH
 initDb();
 
 const app          = express();
-const commonEngine = new CommonEngine();
+const allowedHosts = (process.env['ALLOWED_HOSTS'] ?? 'localhost').split(',').map(h => h.trim());
+const commonEngine = new CommonEngine({ allowedHosts });
 
 // ─── Global middleware ────────────────────────────────────────────────────────
 app.use(express.json());

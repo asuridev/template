@@ -64,8 +64,10 @@ export interface PartnerParams {
 }
 
 export interface PartnerAuth {
+  keycloakUrl: string;
   keycloakRealm: string;
   keycloakClientId: string;
+  keycloakClientIdRedirect: string;
 }
 
 export interface HomeCard {

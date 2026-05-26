@@ -97,7 +97,9 @@
     }
   },
   "auth": {
+    "keycloakUrl": "",
     "keycloakRealm": "",
-    "keycloakClientId": ""
+    "keycloakClientId": "",
+    "keycloakClientIdRedirect": ""
   }
 }

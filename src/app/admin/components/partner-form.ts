@@ -382,6 +382,14 @@ const TEXT_SECTIONS = [
               <h3 class="pf__section-title">Keycloak</h3>
               <div class="pf__grid pf__grid--2">
                 <ui-input
+                  formControlName="keycloakUrl"
+                  label="URL del servidor Keycloak"
+                  type="url"
+                  [required]="true"
+                  placeholder="https://auth.midominio.com"
+                  [errorMessage]="err(auth.get('keycloakUrl'))"
+                />
+                <ui-input
                   formControlName="keycloakRealm"
                   label="Realm"
                   [required]="true"
@@ -392,6 +400,12 @@ const TEXT_SECTIONS = [
                   label="Client ID"
                   [required]="true"
                   [errorMessage]="err(auth.get('keycloakClientId'))"
+                />
+                <ui-input
+                  formControlName="keycloakClientIdRedirect"
+                  label="Client ID Redirect"
+                  [required]="true"
+                  [errorMessage]="err(auth.get('keycloakClientIdRedirect'))"
                 />
               </div>
             </div>
@@ -544,8 +558,10 @@ export class PartnerFormComponent {
       }),
     }),
     auth: this.fb.group({
-      keycloakRealm:    ['', Validators.required],
-      keycloakClientId: ['', Validators.required],
+      keycloakUrl:              ['', Validators.required],
+      keycloakRealm:            ['', Validators.required],
+      keycloakClientId:         ['', Validators.required],
+      keycloakClientIdRedirect: ['', Validators.required],
     }),
     texts: this.fb.group({
       home: this.fb.group({

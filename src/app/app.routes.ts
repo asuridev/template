@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
-import { partnerGuard } from './home/guards/partner.guard';
 import { authGuard } from './shared/guards/auth.guard';
+import { partnerGuard } from './home/guards/partner.guard';
+
 
 export const routes: Routes = [
   {
@@ -9,7 +10,7 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
-    canActivate: [],
+    canActivate: [authGuard],
     loadComponent: () => import('./admin/layout/admin-layout'),
     children: [
       { path: '', redirectTo: 'partners', pathMatch: 'full' },
@@ -37,6 +38,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'home',
+        canActivate: [authGuard],
         loadComponent: () => import('./home/pages/home.page'),
       },
       {

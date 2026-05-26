@@ -1,25 +1,33 @@
-import { inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { inject, PLATFORM_ID } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivateFn,
   RouterStateSnapshot,
-  UrlTree,
 } from '@angular/router';
-import { AuthGuardData, createAuthGuard } from 'keycloak-angular';
 import Keycloak from 'keycloak-js';
 
-const isAccessAllowed = async (
+export const authGuard: CanActivateFn = async (
   _route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot,
-  authData: AuthGuardData
-): Promise<boolean | UrlTree> => {
-  if (authData.authenticated) {
+) => {
+  // SSR: Keycloak no está disponible en servidor — el cliente maneja la auth
+  if (!isPlatformBrowser(inject(PLATFORM_ID))) return true;
+
+  const keycloak = inject(Keycloak);
+
+  if (keycloak.authenticated) {
+    if (keycloak.token) {
+      sessionStorage.setItem('kc_token', keycloak.token);
+    }
+    if (keycloak.refreshToken) {
+      sessionStorage.setItem('kc_refresh_token', keycloak.refreshToken);
+    }
     return true;
   }
 
-  const keycloak = inject(Keycloak);
+  sessionStorage.removeItem('kc_token');
+  sessionStorage.removeItem('kc_refresh_token');
   await keycloak.login({ redirectUri: window.location.origin + state.url });
   return false;
 };
-
-export const authGuard = createAuthGuard<CanActivateFn>(isAccessAllowed);

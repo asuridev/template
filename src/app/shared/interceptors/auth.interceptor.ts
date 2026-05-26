@@ -2,7 +2,7 @@ import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import Keycloak from 'keycloak-js';
 
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 const escapedApiUrl = environment.apiBaseUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const apiUrlPattern = new RegExp(`^${escapedApiUrl}`, 'i');

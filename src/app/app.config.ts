@@ -12,23 +12,31 @@ import { INITIAL_PARTNER_CONFIG } from './shared/tokens/partner-config.token';
 
 export function buildAppConfig(partnerConfig: PartnerConfig | null): ApplicationConfig {
   const auth = partnerConfig?.auth;
+  // keycloak-js accesses `document` in its constructor — must be excluded from SSR
+  const isBrowser = typeof document !== 'undefined';
   return {
     providers: [
-      provideKeycloak({
-        config: {
-          url:      auth?.keycloakUrl      ?? environment.keycloak.url,
-          realm:    auth?.keycloakRealm    ?? environment.keycloak.realm,
-          clientId: auth?.keycloakClientId ?? environment.keycloak.clientId,
-        },
-        initOptions: {
-          onLoad: 'check-sso',
-          silentCheckSsoRedirectUri:
-            (typeof window !== 'undefined' ? window.location.origin : '') +
-            '/silent-check-sso.html',
-        },
-      }),
+      ...(isBrowser
+        ? [
+            provideKeycloak({
+              config: {
+                url: auth?.keycloakUrl ?? environment.keycloak.url,
+                realm: auth?.keycloakRealm ?? environment.keycloak.realm,
+                clientId:
+                  auth?.keycloakClientId ?? environment.keycloak.clientId,
+              },
+              initOptions: {
+                onLoad: 'check-sso',
+                checkLoginIframe: false,
+                token: sessionStorage.getItem('kc_token') ?? undefined,
+                refreshToken:
+                  sessionStorage.getItem('kc_refresh_token') ?? undefined,
+              },
+            }),
+            provideHttpClient(withInterceptors([authInterceptor])),
+          ]
+        : [provideHttpClient()]),
       { provide: INITIAL_PARTNER_CONFIG, useValue: partnerConfig },
-      provideHttpClient(withInterceptors([authInterceptor])),
       provideZoneChangeDetection({ eventCoalescing: true }),
       provideRouter(routes),
       provideClientHydration(withEventReplay()),

@@ -5,5 +5,5 @@ export const environment = {
     realm: 'bnp-realm',
     clientId: 'bnp-portal',
   },
-  apiBaseUrl: 'http://localhost:3000',
+  apiBaseUrl: '',
 };

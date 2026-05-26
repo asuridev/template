@@ -34,7 +34,21 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "security": {
+              "allowedHosts": []
+            },
+            "prerender": false,
+            "ssr": {
+              "entry": "src/server.ts"
+            },
+            "externalDependencies": [
+              "better-sqlite3",
+              "file-type",
+              "isomorphic-dompurify",
+              "jsdom"
+            ]
           },
           "configurations": {
             "production": {

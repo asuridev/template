@@ -1,0 +1,103 @@
+{
+  "theme": {
+    "colors": {
+      "primary": "#1976D2",
+      "primaryDark": "#115293",
+      "primaryLight": "#4791DB",
+      "secondary": "#424242",
+      "secondaryDark": "#1C1C1C",
+      "secondaryLight": "#6D6D6D",
+      "accent": "#FF6F00",
+      "background": "#F5F5F5",
+      "surface": "#FFFFFF",
+      "error": "#D32F2F",
+      "success": "#388E3C",
+      "warning": "#F57C00",
+      "info": "#0288D1",
+      "textPrimary": "#212121",
+      "textSecondary": "#757575",
+      "textDisabled": "#BDBDBD",
+      "border": "#E0E0E0"
+    },
+    "typography": {
+      "fontFamily": "Roboto, sans-serif",
+      "fontFamilyHeading": "Roboto, sans-serif",
+      "fontSizeBase": "16px",
+      "fontWeightNormal": 400,
+      "fontWeightBold": 700,
+      "lineHeightBase": "1.5"
+    },
+    "shape": {
+      "borderRadius": "4px",
+      "borderRadiusLg": "8px"
+    }
+  },
+  "texts": {
+    "common": {
+      "loadingMessage": "Cargando...",
+      "errorMessage": "Ha ocurrido un error. Por favor intenta de nuevo.",
+      "backButtonLabel": "Volver",
+      "saveButtonLabel": "Guardar",
+      "cancelButtonLabel": "Cancelar",
+      "confirmButtonLabel": "Confirmar"
+    },
+    "home": {
+      "pageTitle": "¿Qué quieres hacer hoy?",
+      "cards": [
+        {
+          "badge": "tu progreso",
+          "title": "Activar protección tradicional",
+          "buttonLabel": "Ver ahora"
+        },
+         {
+          "badge": "tu progreso",
+          "title": "Protección modular",
+          "buttonLabel": "Ver ahora"
+        },
+         {
+          "badge": "tus avances",
+          "title": "Revisar mi progreso",
+          "buttonLabel": "Ver ahora"
+        }
+      ]
+    },
+    "auth": {
+      "loginTitle": "Iniciar sesión",
+      "loginSubtitle": "Ingresa tus credenciales para continuar",
+      "logoutConfirm": "¿Estás seguro de que deseas cerrar sesión?",
+      "sessionExpired": "Tu sesión ha expirado. Por favor inicia sesión nuevamente."
+    },
+    "errors": {
+      "notFoundTitle": "Página no encontrada",
+      "notFoundMessage": "El recurso que buscas no existe.",
+      "forbiddenTitle": "Acceso denegado",
+      "forbiddenMessage": "No tienes permisos para acceder a este recurso."
+    },
+    "footer": {
+      "copyrightText": "© 2026 Partner. Todos los derechos reservados.",
+      "tagline": "Soluciones financieras para ti"
+    }
+  },
+  "params": {
+    "locale": "es-CO",
+    "currency": "COP",
+    "dateFormat": "DD/MM/YYYY",
+    "defaultRoute": "/home",
+    "socialLinks": {
+      "twitter": "",
+      "facebook": "",
+      "instagram": "",
+      "linkedin": ""
+    },
+    "urls": {
+      "privacyPolicy": "",
+      "terms": "",
+      "website": "",
+      "homeCards": []
+    }
+  },
+  "auth": {
+    "keycloakRealm": "",
+    "keycloakClientId": ""
+  }
+}

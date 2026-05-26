@@ -5,5 +5,5 @@ export const environment = {
     realm: 'bnp-realm',
     clientId: 'bnp-portal',
   },
-  apiBaseUrl: 'https://api.miempresa.com',
+  apiBaseUrl: '',
 };

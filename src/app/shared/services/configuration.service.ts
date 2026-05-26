@@ -1,4 +1,5 @@
-import { Injectable, inject, signal } from '@angular/core';
+import { Injectable, inject, signal, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of, catchError, tap } from 'rxjs';
 
@@ -7,9 +8,10 @@ import { PartnerConfig } from '../models/partner-config.model';
 
 @Injectable({ providedIn: 'root' })
 export class ConfigurationService {
-  private http   = inject(HttpClient);
-  private cache  = new Map<string, PartnerConfig>();
-  private active = signal<PartnerConfig | null>(null);
+  private http       = inject(HttpClient);
+  private platformId = inject(PLATFORM_ID);
+  private cache      = new Map<string, PartnerConfig>();
+  private active     = signal<PartnerConfig | null>(null);
 
   get current(): PartnerConfig | null {
     return this.active();
@@ -37,6 +39,8 @@ export class ConfigurationService {
   }
 
   applyTheme(config: PartnerConfig): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     const { colors, typography, shape } = config.theme;
     const root = document.documentElement;
 

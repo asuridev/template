@@ -5,6 +5,7 @@ import { provideKeycloak} from 'keycloak-angular';
 
 import { routes } from './app.routes';
 import { environment } from '../environments/environment';
+import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 //import { authInterceptor } from './interceptors/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
@@ -23,7 +24,7 @@ export const appConfig: ApplicationConfig = {
    // provideHttpClient(withInterceptors([authInterceptor])),
     provideHttpClient(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
+    provideRouter(routes), provideClientHydration(withEventReplay()),
   ],
 };
 

@@ -1,5 +1,6 @@
 import Database from 'better-sqlite3';
-import { join } from 'node:path';
+import { mkdirSync } from 'node:fs';
+import { dirname, join } from 'node:path';
 
 let db: Database.Database;
 
@@ -12,6 +13,7 @@ export function initDb(): void {
     ? join(process.cwd(), process.env['DB_PATH'])
     : join(process.cwd(), 'data', 'partners.db');
 
+  mkdirSync(dirname(dbPath), { recursive: true });
   db = new Database(dbPath);
 
   // Enable WAL mode for better concurrent read performance

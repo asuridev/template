@@ -5,6 +5,7 @@ import { Observable, of, catchError, tap } from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 import { PartnerConfig } from '../models/partner-config.model';
+import { INITIAL_PARTNER_CONFIG } from '../tokens/partner-config.token';
 
 @Injectable({ providedIn: 'root' })
 export class ConfigurationService {
@@ -12,6 +13,14 @@ export class ConfigurationService {
   private platformId = inject(PLATFORM_ID);
   private cache      = new Map<string, PartnerConfig>();
   private active     = signal<PartnerConfig | null>(null);
+
+  constructor() {
+    const initial = inject(INITIAL_PARTNER_CONFIG);
+    if (initial) {
+      this.cache.set(initial.id, initial);
+      this.active.set(initial);
+    }
+  }
 
   get current(): PartnerConfig | null {
     return this.active();

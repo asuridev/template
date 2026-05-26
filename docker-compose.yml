@@ -1,0 +1,29 @@
+services:
+  keycloak:
+    image: registry.redhat.io/rh-sso-7/sso76-openshift-rhel8:7.6
+    container_name: bnp-keycloak
+    environment:
+      SSO_ADMIN_USERNAME: admin
+      SSO_ADMIN_PASSWORD: admin
+      # Importa el realm al primer arranque; IGNORE_EXISTING evita sobreescritura en reinicios
+      JAVA_OPTS_APPEND: >-
+        -Dkeycloak.migration.action=import
+        -Dkeycloak.migration.provider=singleFile
+        -Dkeycloak.migration.file=/opt/eap/standalone/configuration/bnp-realm.json
+        -Dkeycloak.migration.strategy=IGNORE_EXISTING
+    ports:
+      - "8080:8080"
+    volumes:
+      # Realm de configuración (solo lectura)
+      - ./keycloak/bnp-realm.json:/opt/eap/standalone/configuration/bnp-realm.json:ro
+      # Persistencia de la base de datos H2 entre reinicios
+      - keycloak-data:/opt/eap/standalone/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/auth/realms/master"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+
+volumes:
+  keycloak-data:

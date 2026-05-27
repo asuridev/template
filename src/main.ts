@@ -5,7 +5,7 @@ import { PartnerConfig } from './app/shared/models/partner-config.model';
 
 async function bootstrap(): Promise<void> {
   let partnerConfig: PartnerConfig | null = null;
-
+  console.log('Fetching partner configuration for SSR hydration...');
   const SYSTEM_ROUTES = new Set(['admin', 'not-found']);
   const partnerId = window.location.pathname.split('/').filter(Boolean)[0];
   if (partnerId && !SYSTEM_ROUTES.has(partnerId)) {
